@@ -1,0 +1,33 @@
+{
+    "name": "scheb/property-access",
+    "type": "library",
+    "description": "A lightweight library to read/write values from/to objects to arrays",
+    "keywords": ["read-write", "access", "property", "object", "array"],
+    "homepage": "https://github.com/scheb/property-access",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Scheb",
+            "email": "me@christianscheb.de"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Scheb\\PropertyAccess\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Scheb\\PropertyAccess\\Test\\": "tests/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
