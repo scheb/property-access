@@ -56,6 +56,16 @@ class ObjectGetterSetterAccessStrategyTest extends TestCase
     /**
      * @test
      */
+    public function getPropertyValue_objectHasPublicBooleanProperty_returnValue(): void
+    {
+        $valueObject = new WithBooleanGetter();
+        $returnValue = $this->accessStrategy->getPropertyValue($valueObject, 'property');
+        $this->assertTrue($returnValue);
+    }
+
+    /**
+     * @test
+     */
     public function getPropertyValue_objectMissingPublicProperty_returnNull(): void
     {
         $valueObject = new WithGetterAndSetter();
@@ -109,5 +119,15 @@ class WithGetterAndSetter
     public function setProperty(string $property): void
     {
         $this->property = $property;
+    }
+}
+
+class WithBooleanGetter
+{
+    private $property = true;
+
+    public function isProperty(): bool
+    {
+        return $this->property;
     }
 }
