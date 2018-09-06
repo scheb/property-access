@@ -40,7 +40,7 @@ class PropertyAccess implements PropertyAccessInterface
             if ($propertyAccessStrategy->supports($valueObject)) {
                 $modifiedValueObject = $propertyAccessStrategy->setPropertyValue($valueObject, $propertyName, $value);
                 if (null !== $modifiedValueObject) {
-                    return $valueObject;
+                    return $modifiedValueObject;
                 }
             }
         }

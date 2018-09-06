@@ -151,6 +151,20 @@ class PropertyAccessTest extends TestCase
     /**
      * @test
      */
+    public function setPropertyValue_oneStrategyModifiesValue_returnModifiedValueObject(): void
+    {
+        $modifiedValueObject = new \stdClass();
+
+        $this->assertStrategySupportsAndReturns($this->strategy1, true);
+        $this->assertStrategySetPropertyReturns($this->strategy1, $modifiedValueObject);
+
+        $returnValue = $this->propertyAccess->setPropertyValue($this->valueObject, self::PROPERTY_NAME, self::PROPERTY_VALUE);
+        $this->assertSame($returnValue, $modifiedValueObject);
+    }
+
+    /**
+     * @test
+     */
     public function setPropertyValue_noStrategyWasSuccessful_throwFailedSettingPropertyException(): void
     {
         $this->assertStrategySupportsAndReturns($this->strategy1, false);
